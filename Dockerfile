@@ -14,4 +14,10 @@ RUN DEBIAN_FRONTEND=noninteractive && \
 
 RUN /usr/bin/curl -sSL https://dl.bintray.com/emccode/rexray/install | sh -s stable
 
-ENTRYPOINT ["/start_rexray.sh"]
+COPY start_rexray.sh /
+COPY rexray-openstack.conf /etc/rexray/
+RUN chmod +x /start_rexray.sh
+
+EXPOSE 7979
+
+CMD ["/start_rexray.sh"]
