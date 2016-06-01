@@ -1,11 +1,17 @@
 FROM ubuntu
 MAINTAINER  Bertrand Retif <bertrand@sudokeys.com>
 
+ENV OSTACK_AUTH_URL https://auth.cloud.ovh.net/v2.0/
+ENV OSTACK_USERNAME username
+ENV OSTACK_PASSWORD password
+ENV OSTACK_TENANT tenant 
+ENV OSTACK_REGION region 
+
 RUN DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
-    apt-get install -yq curl && \
+    apt-get install -yq curl dmidecode && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN /usr/bin/curl -sSL https://dl.bintray.com/emccode/rexray/install | sh -s stable
 
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/start_rexray.sh"]
