@@ -13,6 +13,7 @@ RUN DEBIAN_FRONTEND=noninteractive && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN /usr/bin/curl -sSL https://dl.bintray.com/emccode/rexray/install | sh -s stable
+RUN /usr/bin/curl -sSL https://dl.bintray.com/emccode/dvdcli/install | sh -s stable
 
 COPY start_rexray.sh /
 COPY rexray-openstack.conf /etc/rexray/
