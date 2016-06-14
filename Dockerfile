@@ -9,7 +9,7 @@ ENV OSTACK_REGION region
 
 RUN DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
-    apt-get install -yq curl dmidecode && \
+    apt-get install -yq curl dmidecode vim && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN /usr/bin/curl -sSL https://dl.bintray.com/emccode/rexray/install | sh -s stable
