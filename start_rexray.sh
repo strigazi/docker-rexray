@@ -16,6 +16,6 @@ else
 fi
 
 /usr/bin/rexray version
-/usr/bin/rexray start -f --logLevel=info --host=tcp://7979
+/usr/bin/rexray start -f --logLevel=info --host=tcp://:7979
 
 
