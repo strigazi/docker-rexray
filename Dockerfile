@@ -9,10 +9,13 @@ ENV OSTACK_REGION region
 
 RUN DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
-    apt-get install -yq curl dmidecode vim && \
+    apt-get install -yq curl wget dmidecode vim && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN /usr/bin/curl -sSL https://dl.bintray.com/emccode/rexray/install | sh -s stable
+#RUN /usr/bin/curl -sSL https://dl.bintray.com/emccode/rexray/install | sh -s stable -- stable 0.3.3
+RUN /usr/bin/wget --quiet -O /tmp/rexray_0.3.3-1_amd64.deb https://dl.bintray.com/emccode/rexray/stable/0.3.3/rexray_0.3.3-1_amd64.deb && \
+    dpkg -i /tmp/rexray_0.3.3-1_amd64.deb && \
+    rm /tmp/rexray_0.3.3-1_amd64.deb
 RUN /usr/bin/curl -sSL https://dl.bintray.com/emccode/dvdcli/install | sh -s stable
 
 COPY start_rexray.sh /
