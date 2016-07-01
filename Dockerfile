@@ -6,5 +6,4 @@ RUN /usr/bin/curl -sSL https://dl.bintray.com/emccode/rexray/install | sh -s sta
 
 EXPOSE 7979
 
-CMD["/usr/bin/cp /tmp/rexray/config.yml /etc/rexray/config.yml && \
-     /usr/bin/rexray service start -f -l debug --host=tcp://:7979"]
+CMD ["/usr/bin/cp /tmp/rexray/config.yml /etc/rexray/config.yml && /usr/bin/rexray service start -f -l debug --host=tcp://:7979"]
