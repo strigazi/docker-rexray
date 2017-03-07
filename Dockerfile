@@ -1,9 +1,9 @@
-FROM fedora:23
+FROM fedora:25
 MAINTAINER  Spyros Trigazis <strigazi@gmail.com>
 
 RUN dnf install -y dmidecode which sudo
-RUN /usr/bin/curl -sSL https://dl.bintray.com/emccode/rexray/install | sh -s stable 0.3.3
+COPY rexray /usr/bin/rexray
 
 EXPOSE 7979
 
-CMD ["/usr/bin/rexray", "service", "start", "-f", "-l", "debug", "--host=tcp://:7979"]
+CMD ["/usr/bin/rexray", "service", "start", "-f", "-l", "info"]
