@@ -2,7 +2,7 @@ FROM fedora:25
 MAINTAINER  Spyros Trigazis <strigazi@gmail.com>
 
 RUN dnf install -y dmidecode which sudo
-COPY rexray /usr/bin/rexray
+COPY rexray-glibc /usr/bin/rexray
 
 EXPOSE 7979
 
